@@ -4,13 +4,8 @@ const helmet     = require('helmet');
 const morgan     = require('morgan');
 const rateLimit  = require('express-rate-limit');
 
-
-const userRoutes = require('../frontend/js/Users');
 const clientRoutes = require('./Clientes');
-const appointmentRoutes = require('../frontend/js/Appointments');
-const dashboardRoutes = require('../frontend/js/Dashboard');
-const reportRoutes = require('../frontend/js/Reports');
-const settingsRoutes = require('../frontend/js/Settings');
+
 const app = express();
 
 // ── Segurança ──────────────────────────────────────
@@ -33,13 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ── Rotas ──────────────────────────────────────────
-
-app.use('/api/Users',        userRoutes);
-app.use('/api/Clients',      clientRoutes);
-app.use('/api/Appointments', appointmentRoutes);
-app.use('/api/Dashboard',    dashboardRoutes);
-app.use('/api/Reports',      reportRoutes);
-app.use('/api/Settings',     settingsRoutes);
+app.use('/api/Clients', clientRoutes);
 
 // ── Health check ───────────────────────────────────
 app.get('/api/health', (_req, res) =>
@@ -47,6 +36,11 @@ app.get('/api/health', (_req, res) =>
 );
 
 // ── Erro global ────────────────────────────────────
-app.use(errorHandler);
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({
+    message: 'Erro interno do servidor'
+  });
+});
 
 module.exports = app;
