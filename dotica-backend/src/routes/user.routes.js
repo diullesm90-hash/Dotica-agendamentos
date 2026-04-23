@@ -1,0 +1,10 @@
+const express = require('express');
+const router  = express.Router();
+const { getUsers, createUser, updateUser, toggleUser } = require('../controllers/user.controller');
+const { protect, adminOnly } = require('../middleware/auth.middleware');
+router.use(protect);
+router.get('/',                  getUsers);
+router.post('/',    adminOnly,   createUser);
+router.put('/:id',  adminOnly,   updateUser);
+router.patch('/:id/toggle', adminOnly, toggleUser);
+module.exports = router;
