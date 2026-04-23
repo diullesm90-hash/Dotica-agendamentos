@@ -4,13 +4,13 @@ const helmet     = require('helmet');
 const morgan     = require('morgan');
 const rateLimit  = require('express-rate-limit');
 
-const authRoutes        = require('./routes/auth.routes');
-const userRoutes        = require('./routes/user.routes');
-const clientRoutes      = require('./routes/client.routes');
-const appointmentRoutes = require('./routes/appointment.routes');
-const dashboardRoutes   = require('./routes/dashboard.routes');
-const reportRoutes      = require('./routes/report.routes');
-const settingsRoutes    = require('./routes/settings.routes');
+const authRoutes        = require('Auth.routes');
+const userRoutes        = require('User.routes');
+const clientRoutes      = require('Clientes.routes');
+const appointmentRoutes = require('Appointment.routes');
+const dashboardRoutes   = require('Dashboard.routes');
+const reportRoutes      = require('Report.routes');
+const settingsRoutes    = require('Settings.routes');
 const { errorHandler }  = require('./middleware/error.middleware');
 
 const app = express();
@@ -35,13 +35,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ── Rotas ──────────────────────────────────────────
-app.use('/api/auth',         authRoutes);
-app.use('/api/users',        userRoutes);
-app.use('/api/clients',      clientRoutes);
-app.use('/api/appointments', appointmentRoutes);
-app.use('/api/dashboard',    dashboardRoutes);
-app.use('/api/reports',      reportRoutes);
-app.use('/api/settings',     settingsRoutes);
+app.use('/api/Auth',         authRoutes);
+app.use('/api/Users',        userRoutes);
+app.use('/api/Clients',      clientRoutes);
+app.use('/api/Appointments', appointmentRoutes);
+app.use('/api/Dashboard',    dashboardRoutes);
+app.use('/api/Reports',      reportRoutes);
+app.use('/api/Settings',     settingsRoutes);
 
 // ── Health check ───────────────────────────────────
 app.get('/api/health', (_req, res) =>
