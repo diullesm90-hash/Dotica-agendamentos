@@ -4,13 +4,13 @@ const helmet     = require('helmet');
 const morgan     = require('morgan');
 const rateLimit  = require('express-rate-limit');
 
-const authRoutes        = require('Auth.routes');
-const userRoutes        = require('User.routes');
-const clientRoutes      = require('Clientes.routes');
-const appointmentRoutes = require('Appointment.routes');
-const dashboardRoutes   = require('Dashboard.routes');
-const reportRoutes      = require('Report.routes');
-const settingsRoutes    = require('Settings.routes');
+const authRoutes        = require('Auth.js');
+const userRoutes        = require('User.js');
+const clientRoutes      = require('Clientes.js');
+const appointmentRoutes = require('Appointment.js');
+const dashboardRoutes   = require('Dashboard.js');
+const reportRoutes      = require('Reports.js');
+const settingsRoutes    = require('Settings.js');
 const { errorHandler }  = require('./middleware/error.middleware');
 
 const app = express();
