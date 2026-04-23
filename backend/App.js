@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
+const autchRoutes = require('./Auth');
 
 const app = express();
 
@@ -35,5 +36,8 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
+
+// Rotas de autenticação
+app.use('/api/auth', autchRoutes);
 
 module.exports = app;
