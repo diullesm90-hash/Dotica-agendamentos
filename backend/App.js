@@ -4,7 +4,7 @@ const helmet     = require('helmet');
 const morgan     = require('morgan');
 const rateLimit  = require('express-rate-limit');
 
-const clientRoutes = require('./Clientes');
+const clientRoutes = require('./Clients');
 
 const app = express();
 
