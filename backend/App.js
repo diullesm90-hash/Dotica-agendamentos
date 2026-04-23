@@ -4,7 +4,7 @@ const helmet     = require('helmet');
 const morgan     = require('morgan');
 const rateLimit  = require('express-rate-limit');
 
-const authRoutes = require('../frontend/js/Auth');
+
 const userRoutes = require('../frontend/js/Users');
 const clientRoutes = require('./Clientes');
 const appointmentRoutes = require('../frontend/js/Appointments');
@@ -33,7 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ── Rotas ──────────────────────────────────────────
-app.use('/api/Auth',         authRoutes);
+
 app.use('/api/Users',        userRoutes);
 app.use('/api/Clients',      clientRoutes);
 app.use('/api/Appointments', appointmentRoutes);
