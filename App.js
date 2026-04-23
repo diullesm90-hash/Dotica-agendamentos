@@ -4,15 +4,13 @@ const helmet     = require('helmet');
 const morgan     = require('morgan');
 const rateLimit  = require('express-rate-limit');
 
-const authRoutes        = require('Auth');
-const userRoutes        = require('User');
-const clientRoutes      = require('Clientes');
-const appointmentRoutes = require('Appointments');
-const dashboardRoutes   = require('Dashboard');
-const reportRoutes      = require('Reports');
-const settingsRoutes    = require('Settings');
-const { errorHandler }  = require('./middleware/error.middleware');
-
+const authRoutes = require('./Auth');
+const userRoutes = require('./Users');
+const clientRoutes = require('./Clientes');
+const appointmentRoutes = require('./Appointments');
+const dashboardRoutes = require('./Dashboard');
+const reportRoutes = require('./Reports');
+const settingsRoutes = require('./Settings');
 const app = express();
 
 // ── Segurança ──────────────────────────────────────
