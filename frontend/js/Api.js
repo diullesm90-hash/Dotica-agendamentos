@@ -3,7 +3,7 @@
 // Substitui o antigo data.js
 // ============================================
 
-const API_URL = 'https://projeto-otica-backend.onrender.com'; // URL do backend (ajuste conforme necessário)
+const API_URL = '/api'; // URL do backend (ajuste conforme necessário)
 // ── Token ─────────────────────────────────────────
 function getToken()         { return localStorage.getItem('dotica_token'); }
 function setToken(t)        { localStorage.setItem('dotica_token', t); }
