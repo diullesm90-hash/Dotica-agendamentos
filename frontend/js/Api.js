@@ -25,7 +25,10 @@ async function req(path, options = {}) {
 
 // ── Auth ──────────────────────────────────────────
 const api = {
-  login:          (body)         => req('/Auth/login', { method:'POST', body: JSON.stringify(body) }),
+  login: (body) => req('/Auth/login', {
+  method:'POST',
+  body: JSON.stringify(body)
+}),
   getMe:          ()             => req('/Auth/me'),
   changePassword: (body)         => req('/Auth/change-password', { method:'POST', body: JSON.stringify(body) }),
 

@@ -8,12 +8,15 @@ const autchRoutes = require('./Auth');
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 // Segurança
 app.use(
   helmet({
     contentSecurityPolicy: false
   })
 );
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -41,7 +44,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
-// Rotas de autenticação
-app.use('/api/auth', autchRoutes);
+// Rotas
+app.use('/api/Auth', autchRoutes);
 
 module.exports = app;
