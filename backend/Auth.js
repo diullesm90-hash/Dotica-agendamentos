@@ -1,5 +1,5 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('./models/Users');
 
@@ -14,7 +14,7 @@ router.post('/login', async (req, res) => {
     return res.status(401).json({ message: 'Usuário não encontrado' });
   }
 
-  const valid = await bcrypt.compare(password, user.password);
+  const valid = await bcryptjs.compare(password, user.password);
   if (!valid) {
     return res.status(401).json({ message: 'Senha inválida' });
   }
